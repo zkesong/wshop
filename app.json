@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mime/mime",
+    "pages/goodsearch/goodsearch",
+    "pages/goodshop/goodshop",
+    "pages/goodsDetail/goodsDetail",
+    "pages/login/login",  
+    "pages/logs/logs",
+    "pages/orderConfirm/orderConfirm",
+    "pages/goodlist/goodlist",
+    "pages/specValue/specValue",
+    "pages/ordertotal/ordertotal",
+    "pages/addressManager/addressManager",
+    "pages/addressAdd/addressAdd",
+     "pages/manager/manager",
+     "pages/service/service",
+     "pages/coupon/coupon",
+     "pages/paycomplete/paycomplete"
+  ],
+  "window": {
+    "enablePullDownRefresh": "true",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFF",
+    "navigationBarTitleText": "阿松零食店",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#575757",
+    "selectedColor": "#f40",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "selectedIconPath": "images/index_red.png",
+        "iconPath": "images/index.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/carter_red.png",
+        "iconPath": "images/carter.png",
+        "pagePath": "pages/ordertotal/ordertotal",
+        "text": "购物车"
+      },
+      {
+        "selectedIconPath": "images/mine_red.png",
+        "iconPath": "images/mine.png",
+        "pagePath": "pages/mime/mime",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}
