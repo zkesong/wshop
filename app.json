@@ -19,11 +19,10 @@
      "pages/paycomplete/paycomplete"
   ],
   "window": {
-    "enablePullDownRefresh": "true",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#FFF",
-    "navigationBarTitleText": "阿松零食店",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#CD0000",
+    "navigationBarTitleText": "微商城",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#575757",
@@ -47,7 +46,7 @@
         "selectedIconPath": "images/mine_red.png",
         "iconPath": "images/mine.png",
         "pagePath": "pages/mime/mime",
-        "text": "我的"
+        "text": "个人中心"
       }
     ]
   },

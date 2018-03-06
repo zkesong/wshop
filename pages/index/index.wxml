@@ -1,15 +1,39 @@
 
 <!--index.wxml-->
 <view class="userinfo">
-  <scroll-view scroll-y="true" style="height:750px">
-	<div style="height:20px;">
-	  <image class="userinfo-avatar" mode="scaleToFill" src="../../images/icon.png" />
-	</div>
-	<view class="index_search_btn" bindtap="click">
-	  <image class="index_search" src="../../images/searchLogo.png"></image>
-      <text>搜索您想要的商品</text>
-    </view>
-
+  <scroll-view style='height: 100%'>
+  <!--导航条-->  
+<view class="navbar">  
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">
+  {{item}}
+  </text>  
+</view>  
+<!--首页-->  
+<view hidden="{{currentTab!==0}}">  
+  <view class="swiper-container">  
+    <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">  
+      <block wx:for="{{slider}}" wx:key="unique">  
+        <swiper-item data-id="{{item.id}}" data-url="{{item.linkUrl}}">  
+          <image src="{{item.picUrl}}" class="img"></image>  
+        </swiper-item>  
+      </block>  
+    </swiper>  
+    <view class="dots">  
+      <block wx:for="{{slider}}" wx:key="unique">  
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}" bindtap="chuangEvent" id="{{index}}">{{index+1}}</view>  
+      </block>  
+    </view>  
+  </view>   
+</view>  
+<!--搜索-->  
+<view hidden="{{currentTab!==1}}">  
+  tab_02  
+</view>  
+  
+<!--我-->  
+<view hidden="{{currentTab!==2}}">  
+  tab_03  
+</view> 
 	<!--为你推荐-->
 	<view class="Recommend ">为你推荐</view>
 
@@ -17,11 +41,11 @@
 	<view class="list">
 	  <block wx:for-items="{{list}}" wx:key="">
 		<view class="item" catchtap="itemClick" data-specId="{{item.specId}}">
-		  <view class="item-text1">{{item.gcName}}</view>
-		  <view class="item-text2">{{item.goodsName}}</view>
-		  <image class="img" src="http://kslive.cn{{item.goodsImage}}" mode='scaleToFill' />
+		  <image class="img" src="{{item.imgUrl}}" mode='scaleToFill' />
+      <view class="item-text1">{{item.description}}</view>
+		  <view class="item-text2">￥{{item.price}}</view>
 		</view>
 	  </block>
 	</view>
-  </scroll-view>
+    </scroll-view>
 </view>

@@ -7,9 +7,31 @@ var uri_home = 'recommend/api/indexGoodList';
 Page({
   //主页数据	
   data: {
-    motto: '请输入您要搜索的商品',
-    list: []
+    navbar: ['首页', '鞋包', '服饰','百货','食品'],
+    currentTab: 0,
+    slider: [{ "picUrl": "../../images/banner1.jpg" }, { "picUrl":       "../../images/banner2.jpg" }, { "picUrl": "../../images/banner3.jpg" }],
+    swiperCurrent: 0,
+    list: [{ "imgUrl": "../../images/item1.jpg", "description": "宝财羊 中老年男装夹克男", "price": 128 }, { "imgUrl": "../../images/item2.jpg", "description": "宝财羊 爸爸裤子男秋冬季", "price": 168 }, { "imgUrl": "../../images/item3.jpg", "description": "美味香蕉", "price": 20 }, { "imgUrl": "../../images/item4.jpg", "description": "用Python写网络爬虫","price": 35.5 }]
   },
+  //首页导航栏
+  navbarTap: function(e) {
+    this.setData({
+      currentTab: e.currentTarget.dataset.idx
+    })
+  },
+  //轮播图的切换事件  
+  swiperChange: function (e) {
+    //只要把切换后当前的index传给<swiper>组件的current属性即可  
+    this.setData({
+      swiperCurrent: e.detail.current
+    })
+  },
+  //点击指示点切换  
+  chuangEvent: function (e) {
+    this.setData({
+      swiperCurrent: e.currentTarget.id
+    })
+  },  
   //搜索按钮点击
   searchClick: function () {
     wx.navigateTo({
@@ -41,7 +63,7 @@ Page({
       complete: function () {
 
       }
-    })；
+    })
 	//调用API获取后台数据
     var that = this;
     request.tokenReq(uri_home, { apKey: 'advh5' },
